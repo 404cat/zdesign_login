@@ -2,7 +2,8 @@
 <link rel="stylesheet" type="text/css" id="login" href="template/zdesign_login/member/css/ui.css" />
 <link rel="stylesheet" type="text/css" id="login" href="template/zdesign_login/member/css/Select.css" />
 <link rel="stylesheet" type="text/css" id="login" href="template/zdesign_login/member/css/login.css" />
-
+<link rel="stylesheet" type="text/css" id="spiper" href="template/zdesign_login/member/css/swiper.min.css" />
+<script src="template/zdesign_login/member/js/swiper.min.js"></script>
 <script src="template/zdesign_login/member/js/Select.js"></script>
 <!-- 自动跳转 -->
 <!--{eval $loginhash = 'L'.random(4);}-->
@@ -21,16 +22,75 @@
 
 <div class="whole">
 	<div class="container">
-		<div class="login-box">
-			<div class="login clearfix">
+		
+		<div class="content-box">
+			<div class="content clearfix">
 				<div class="cards">
-					
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="z_logo">
+									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+								</div>
+								<div class="z_introduce">
+									<h2 class="z_">关耳郑的设计</h2>
+									<p>
+										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+									</p>
+									<p>
+										创新应用
+										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+									</p>
+									<p>
+										网络营销
+										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+									</p>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="z_logo">
+									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+								</div>
+								<div class="z_introduce">
+									<h2 class="z_">关耳郑的设计</h2>
+									<p>
+										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+									</p>
+									<p>
+										创新应用
+										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+									</p>
+									<p>
+										网络营销
+										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
 				</div>
-				<div class="login-form">
+				<script>
+					var swiper = new Swiper('.swiper-container', {
+						slidesPerView: 1,
+						spaceBetween: 30,
+						loop: true,
+						autoplay:true,
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true,
+						},
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						},
+					});
+				</script>
+				<div class="form">
 					<form method="post" autocomplete="off" name="login" id="loginform_$loginhash" class="cl" onsubmit="{if $this->setting['pwdsafety']}pwmd5('password3_$loginhash');{/if}pwdclear = 1;ajaxpost('loginform_$loginhash', 'returnmessage_$loginhash', 'returnmessage_$loginhash', 'onerror');return false;" action="member.php?mod=logging&action=login&loginsubmit=yes{if !empty($_GET['handlekey'])}&handlekey=$_GET[handlekey]{/if}{if isset($_GET['frommessage'])}&frommessage{/if}&loginhash=$loginhash">
 							<input type="hidden" name="formhash" value="{FORMHASH}" />
 							<input type="hidden" name="referer" value="{echo dreferer()}" />
-							<h1>登录</h1>
+							<h1 class="z-title">登录</h1>
 							<!--{if $auth}-->
 								<input type="hidden" name="auth" value="$auth" />
 							<!--{/if}-->
@@ -49,16 +109,16 @@
 										用户名/email登录：
 									<!--{/if}-->
 								</div>
-								<div>
-									<input type="text" name="username" id="username_$loginhash" autocomplete="off" size="30" class="px p_fre ui-input" tabindex="1" value="$username" />
+								<div class="input-wrap">
+									<input type="text" name="username" id="username_$loginhash" autocomplete="off" size="30" class=" " tabindex="1" value="$username" />
 								</div>
 							</div>
 							<div class="text-field-content">
 								<div class="text-field-label">
 									{lang login_password}
 								</div>
-								<div>
-									<input type="password" id="password3_$loginhash" name="password" onfocus="clearpwd()" size="30" class="px p_fre ui-input" tabindex="1" />
+								<div class="input-wrap">
+									<input type="password" id="password3_$loginhash" name="password" onfocus="clearpwd()" size="30" class=" " tabindex="1" />
 								</div>
 							</div>
 							<!--{/if}-->
@@ -68,7 +128,7 @@
 								<div class="text-field-label">
 									{lang security_q}
 								</div>
-								<div>
+								<div class="z_question_select">
 									<select id="loginquestionid_$loginhash" width="213" name="questionid"{if !$questionexist} onchange="if($('loginquestionid_$loginhash').value > 0) {$('loginanswer_row_$loginhash').style.display='';} else {$('loginanswer_row_$loginhash').style.display='none';}"<!--{/if}-->>
 										<option value="0"><!--{if $questionexist}-->{lang security_question_0}<!--{else}-->{lang security_question}<!--{/if}--></option>
 										<option value="1">{lang security_question_1}</option>
@@ -85,31 +145,30 @@
 								<div class="text-field-label">
 									{lang security_a}
 								</div>
-								<div>
-									<input type="text" name="answer" id="loginanswer_$loginhash" autocomplete="off" size="30" class="px p_fre ui-input" tabindex="1" />
+								<div class="input-wrap">
+									<input type="text" name="answer" id="loginanswer_$loginhash" autocomplete="off" size="30" class=" " tabindex="1" />
 								</div>
 							</div>
 							<!--{/if}-->
 			
-							<!--{if $seccodecheck}-->
-								<!--{block sectpl}--><div class="text-field-content"><div class="text-field-label"><sec></div><div><sec><div><sec></div></div></div><!--{/block}-->
+							<!--{if $secqaacheck || $seccodecheck}-->
+								<!--{block sectpl}--><div class="rfm text-field-content sec-check-wrap"><div><sec></div><div class="z_flex"><div class="check-input"><sec></div><div class="check-pic"><sec></div></div> <div><hr class="text-field-line"> <hr class="text-field-focus-line text-focus"></div> </div><!--{/block}-->
 								<!--{subtemplate common/seccheck}-->
 							<!--{/if}-->
-			
 							<!--{hook/logging_input}-->
 			
-							<div class="rfm {if !empty($_GET['infloat'])} bw0{/if}">
+							<div style="padding-top: 0;" class="z_flex_left rfm {if !empty($_GET['infloat'])} bw0{/if}">
 								<input style="display: none" type="checkbox" id="cookietime_$loginhash" name="checkbox" >
 								<label for="cookietime_$loginhash" class="ui-checkbox"></label><label for="cookietime_$loginhash" tabindex="1" value="2592000" $cookietimecheck>{lang login_permanent}</label>
 							</div>
 			
 							<div class="rfm mbw bw0">
 								<div>
-									<button class="ui-button" data-type="primary" type="submit" name="loginsubmit" value="true" tabindex="1">{lang login}</button>
+									<button width="100%" class="ui-button" data-type="primary" type="submit" name="loginsubmit" value="true" tabindex="1">{lang login}</button>
 								</div>
-								<div>
+								<div class="z_flex_between z_mt10">
 									<a href="member.php?mod={$_G[setting][regname]}">$_G['setting']['reglinkname']</a>
-									<a href="javascript:;" onclick="display('layer_login_$loginhash');display('layer_lostpw_$loginhash');" title="{lang getpassword}">{lang getpassword}</a>
+									<a href="javascript:;" onclick="display('layer_login_$loginhash');display('layer_lostpw_$loginhash');display('loginform_$loginhash')" title="{lang getpassword}">{lang getpassword}</a>
 								</div>
 								<!--{if $this->setting['sitemessage'][login] && empty($_GET['infloat'])}--><a href="javascript:;" id="custominfo_login_$loginhash" class="y">&nbsp;<img src="{IMGDIR}/info_small.gif" alt="{lang faq}" class="vm" /></a><!--{/if}-->			
 							</div>
@@ -125,6 +184,30 @@
 								</div>
 							<!--{/if}-->
 					</form>
+					<div id="layer_lostpw_$loginhash" style="display: none;">
+						<div style="width: 300px; margin: 0 auto;" class="z_flex_between">
+							<h1 class="z-title">忘记密码</h1>
+							<a class="pointer" onclick="display('layer_login_$loginhash');display('layer_lostpw_$loginhash');display('loginform_$loginhash')">关闭</a>
+						</div>
+						<form method="post" autocomplete="off" id="lostpwform_$loginhash" class="cl" onsubmit="ajaxpost('lostpwform_$loginhash', 'returnmessage3_$loginhash', 'returnmessage3_$loginhash', 'onerror');return false;" action="member.php?mod=lostpasswd&lostpwsubmit=yes&infloat=yes">
+							<div class="c cl">
+								<input class="" type="hidden" name="formhash" value="{FORMHASH}" />
+								<input class="" type="hidden" name="handlekey" value="lostpwform" />
+								<div class="text-field-content">
+									<div><span class="rq">*</span><label for="lostpw_email">{lang email}:</label></div>
+									<div class="input-wrap"><input class="" type="text" name="email" id="lostpw_email" size="30" value=""  tabindex="1" class="" /></div>
+								</div>
+								<div class="text-field-content">
+									<div><label for="lostpw_username">{lang username}:</label></div>
+									<div class="input-wrap"><input class="" type="text" name="username" id="lostpw_username" size="30" value=""  tabindex="1" class="" /></div>
+								</div>
+				
+								<div class="rfm mbw bw0">
+									<button width="100%" class="ui-button" data-type="primary" type="submit" name="lostpwsubmit" value="true" tabindex="100"><span>{lang submit}</span></button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -146,43 +229,7 @@
 	<!--{if $_G['setting']['pwdsafety']}-->
 		<script type="text/javascript" src="{$_G['setting']['jspath']}md5.js?{VERHASH}" reload="1"></script>
 	<!--{/if}-->
-	<div id="layer_lostpw_$loginhash" style="display: none;">
-		<h3 class="flb">
-			<em id="returnmessage3_$loginhash">{lang getpassword}</em>
-			<span><!--{if !empty($_GET['infloat']) && !isset($_GET['frommessage'])}--><a href="javascript:;" class="flbc" onclick="hideWindow('login')" title="{lang close}">{lang close}</a><!--{/if}--></span>
-		</h3>
-		<form method="post" autocomplete="off" id="lostpwform_$loginhash" class="cl" onsubmit="ajaxpost('lostpwform_$loginhash', 'returnmessage3_$loginhash', 'returnmessage3_$loginhash', 'onerror');return false;" action="member.php?mod=lostpasswd&lostpwsubmit=yes&infloat=yes">
-			<div class="c cl">
-				<input class="ui-input" type="hidden" name="formhash" value="{FORMHASH}" />
-				<input class="ui-input" type="hidden" name="handlekey" value="lostpwform" />
-				<div class="text-field-content">
-					<table>
-						<tr>
-							<th><span class="rq">*</span><label for="lostpw_email">{lang email}:</label></th>
-							<td><input class="ui-input" type="text" name="email" id="lostpw_email" size="30" value=""  tabindex="1" class="px p_fre" /></td>
-						</tr>
-					</table>
-				</div>
-				<div class="text-field-content">
-					<table>
-						<tr>
-							<th><label for="lostpw_username">{lang username}:</label></th>
-							<td><input class="ui-input" type="text" name="username" id="lostpw_username" size="30" value=""  tabindex="1" class="px p_fre" /></td>
-						</tr>
-					</table>
-				</div>
 
-				<div class="rfm mbw bw0">
-					<table>
-						<tr>
-							<th></th>
-							<td><button class="ui-button" data-type="primary" type="submit" name="lostpwsubmit" value="true" tabindex="100"><span>{lang submit}</span></button></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</form>
-	</div>
 </div>
 
 <div id="layer_message_$loginhash"{if empty($_GET['infloat'])} class="f_c blr nfl"{/if} style="display: none;">

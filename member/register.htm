@@ -35,10 +35,42 @@
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-							1
+								<div class="z_logo">
+									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+								</div>
+								<div class="z_introduce">
+									<h2 class="z_">关耳郑的设计</h2>
+									<p>
+										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+									</p>
+									<p>
+										创新应用
+										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+									</p>
+									<p>
+										网络营销
+										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+									</p>
+								</div>
 							</div>
 							<div class="swiper-slide">
-							3
+								<div class="z_logo">
+									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+								</div>
+								<div class="z_introduce">
+									<h2 class="z_">关耳郑的设计</h2>
+									<p>
+										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+									</p>
+									<p>
+										创新应用
+										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+									</p>
+									<p>
+										网络营销
+										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+									</p>
+								</div>
 							</div>
 						</div>
 						<div class="swiper-pagination"></div>
@@ -63,7 +95,7 @@
 				<div class="form">
 					<!--{if $this->showregisterform}-->
 					<form method="post" autocomplete="off" name="register" id="registerform" enctype="multipart/form-data" onsubmit="checksubmit();return false;" action="member.php?mod=$regname">
-						<div id="layer_reg" class="bm_c">
+						<div id="layer_reg" class="">
 							<input type="hidden" name="regsubmit" value="yes" />
 							<input type="hidden" name="formhash" value="{FORMHASH}" />
 							<input type="hidden" name="referer" value="$dreferer" />
@@ -71,6 +103,7 @@
 							<!--{if $_G['setting']['sendregisterurl']}-->
 								<input type="hidden" name="hash" value="$_GET[hash]" />
 							<!--{/if}-->
+							<h1 class="z-title">免费注册</h1>
 							<div class="">
 								<div id="reginfo_a">
 									<!--{hook/register_top}-->
@@ -83,7 +116,7 @@
 														<input type="text" id="{$this->setting['reginput']['email']}" name="$this->setting['reginput']['email']" autocomplete="off" size="25" tabindex="1" class="" required /><br /><em id="emailmore">&nbsp;</em>
 														<input type="hidden" name="handlekey" value="sendregister"/>
 													</td>
-													<td class="tipcol"><i id="tip_{$this->setting['reginput']['email']}" class="p_tip">{lang register_email_tips}</i><kbd id="chk_{$this->setting['reginput']['email']}" class="p_chk"></kbd></td>
+													<td class="tipcol"><i style="width: 100%" id="tip_{$this->setting['reginput']['email']}" class="p_tip">{lang register_email_tips}</i><kbd id="chk_{$this->setting['reginput']['email']}" class="p_chk"></kbd></td>
 												</tr>
 											</table>
 											<table>
@@ -137,7 +170,7 @@
 											<div class="text-field-label">
 												<label for="invitecode">{lang invite_code}</label>
 											</div>
-											<div>
+											<div class="input-wrap">
 												<input type="text" id="invitecode" name="invitecode" autocomplete="off" size="25" onblur="checkinvite()" tabindex="1" class="" required /><!--{if $this->setting['inviteconfig']['buyinvitecode'] && $this->setting['inviteconfig']['invitecodeprice'] && ($this->setting[ec_tenpay_bargainor] || $this->setting[ec_tenpay_opentrans_chnid] || $this->setting[ec_account])}--><p><a href="misc.php?mod=buyinvitecode" target="_blank" class="xi2">{lang register_buyinvitecode}</a></p><!--{/if}-->
 												<!--{if $this->setting['inviteconfig']['invitecodeprompt']}-->$this->setting[inviteconfig][invitecodeprompt]<!--{/if}-->
 											</div>
@@ -152,8 +185,8 @@
 										<!--{if $_GET[action] != 'activation'}-->
 											<div class="text-field-content rfm">
 												<div><span class="rq">*</span><label for="{$this->setting['reginput']['username']}">{lang username}:</label></div>
-												<div><input type="text" id="{$this->setting['reginput']['username']}" name="" class="" tabindex="1" value="{echo dhtmlspecialchars($_GET[defaultusername])}" autocomplete="off" size="25" maxlength="15" required /></div>
-												<div class="tipcol"><i id="tip_{$this->setting['reginput']['username']}" class="p_tip">{lang register_username_tips}</i><kbd id="chk_{$this->setting['reginput']['username']}" class="p_chk"></kbd></div>
+												<div class="input-wrap"><input type="text" id="{$this->setting['reginput']['username']}" name="" class="" tabindex="1" value="{echo dhtmlspecialchars($_GET[defaultusername])}" autocomplete="off" size="25" maxlength="15" required /></div>
+												<div class="tipcol"><i style="width: 100%" id="tip_{$this->setting['reginput']['username']}" class="p_tip">{lang register_username_tips}</i><kbd id="chk_{$this->setting['reginput']['username']}" class="p_chk"></kbd></div>
 												<div>
 													<hr class="text-field-line">
 													<hr class="text-field-focus-line text-focus">
@@ -162,8 +195,8 @@
 
 											<div class="rfm text-field-content">
 												<div><span class="rq">*</span><label for="{$this->setting['reginput']['password']}">{lang password}:</label></div>
-												<div><input type="password" id="{$this->setting['reginput']['password']}" name="" size="25" tabindex="1" class="" required /></div>
-												<div class="tipcol"><i id="tip_{$this->setting['reginput']['password']}" class="p_tip">{lang register_password_tips}<!--{if $_G['setting']['pwlength']}-->, {lang register_password_length_tips1} $_G['setting']['pwlength'] {lang register_password_length_tips2}<!--{/if}--></i><kbd id="chk_{$this->setting['reginput']['password']}" class="p_chk"></kbd></div>
+												<div class="input-wrap"><input type="password" id="{$this->setting['reginput']['password']}" name="" size="25" tabindex="1" class="" required /></div>
+												<div class="tipcol"><i style="width: 100%" id="tip_{$this->setting['reginput']['password']}" class="p_tip">{lang register_password_tips}<!--{if $_G['setting']['pwlength']}-->, {lang register_password_length_tips1} $_G['setting']['pwlength'] {lang register_password_length_tips2}<!--{/if}--></i><kbd id="chk_{$this->setting['reginput']['password']}" class="p_chk"></kbd></div>
 												<div>
 													<hr class="text-field-line">
 													<hr class="text-field-focus-line text-focus">
@@ -172,8 +205,8 @@
 
 											<div class="rfm text-field-content">
 												<div><span class="rq">*</span><label for="{$this->setting['reginput']['password2']}">{lang password_confirm}:</label></div>
-												<div><input type="password" id="{$this->setting['reginput']['password2']}" name="" size="25" tabindex="1" value="" class="" required /></div>
-												<div class="tipcol"><i id="tip_{$this->setting['reginput']['password2']}" class="p_tip">{lang register_repassword_tips}</i><kbd id="chk_{$this->setting['reginput']['password2']}" class="p_chk"></kbd></div>
+												<div class="input-wrap"><input type="password" id="{$this->setting['reginput']['password2']}" name="" size="25" tabindex="1" value="" class="" required /></div>
+												<div class="tipcol"><i style="width: 100%" id="tip_{$this->setting['reginput']['password2']}" class="p_tip">{lang register_repassword_tips}</i><kbd id="chk_{$this->setting['reginput']['password2']}" class="p_chk"></kbd></div>
 												<div>
 													<hr class="text-field-line">
 													<hr class="text-field-focus-line text-focus">
@@ -182,8 +215,8 @@
 
 											<div class="rfm text-field-content">
 												<div><!--{if !$_G['setting']['forgeemail']}--><span class="rq">*</span><!--{/if}--><label for="{$this->setting['reginput']['email']}">{lang email}:</label></div>
-												<div><input type="text" id="{$this->setting['reginput']['email']}" name="" autocomplete="off" size="25" tabindex="1" class="" value="$hash[0]" {if !$_G['setting']['forgeemail']}required{/if} /><em id="emailmore">&nbsp;</em></div>
-												<div class="tipcol"><i id="tip_{$this->setting['reginput']['email']}" class="p_tip">{lang register_email_tips}</i><kbd id="chk_{$this->setting['reginput']['email']}" class="p_chk"></kbd></div>
+												<div class="input-wrap"><input type="text" id="{$this->setting['reginput']['email']}" name="" autocomplete="off" size="25" tabindex="1" class="" value="$hash[0]" {if !$_G['setting']['forgeemail']}required{/if} /><em id="emailmore">&nbsp;</em></div>
+												<div class="tipcol"><i style="width: 100%" id="tip_{$this->setting['reginput']['email']}" class="p_tip">{lang register_email_tips}</i><kbd id="chk_{$this->setting['reginput']['email']}" class="p_chk"></kbd></div>
 												<div>
 													<hr class="text-field-line">
 													<hr class="text-field-focus-line text-focus">
@@ -201,8 +234,8 @@
 										<!--{if $this->setting['regverify'] == 2}-->
 										<div class="rfm text-field-content">
 											<div><span class="rq">*</span><label for="regmessage">{lang register_message}:</label></div>
-											<div><input id="regmessage" name="regmessage" class="" autocomplete="off" size="25" tabindex="1" required /></div>
-											<div class="tipcol"><i id="tip_regmessage" class="p_tip">{lang register_message1}</i></div>
+											<div class="input-wrap"><input id="regmessage" name="regmessage" class="" autocomplete="off" size="25" tabindex="1" required /></div>
+											<div class="tipcol"><i style="width: 100%" id="tip_regmessage" class="p_tip">{lang register_message1}</i></div>
 											<div>
 												<hr class="text-field-line">
 												<hr class="text-field-focus-line text-focus">
@@ -212,12 +245,8 @@
 
 										<!--{if empty($invite) && $this->setting['regstatus'] == 3}-->
 										<div class="rfm text-field-content">
-											<table>
-												<tr>
-													<th><label for="invitecode">{lang invite_code}:</label></th>
-													<td><input type="text" name="invitecode" autocomplete="off" size="25" id="invitecode"{if $this->setting['regstatus'] == 2} onblur="checkinvite()"{/if} tabindex="1" class="" /></td>
-												</tr>
-											</table>
+											<div><label for="invitecode">{lang invite_code}:</label></div>
+											<div class="input-wrap"><input type="text" name="invitecode" autocomplete="off" size="25" id="invitecode"{if $this->setting['regstatus'] == 2} onblur="checkinvite()"{/if} tabindex="1" class="" /></div>
 										</div>
 										<!--{eval $invitecode = 1;}-->
 										<!--{/if}-->
@@ -229,7 +258,7 @@
 													<tr>
 														<th><!--{if $field['required']}--><span class="rq">*</span><!--{/if}--><label for="$field['fieldid']">$field[title]:</label></th>
 														<td>$htmls[$field['fieldid']]</td>
-														<td class="tipcol"><i id="tip_$field['fieldid']" class="p_tip"><!--{if $field['description']}--><!--{echo dhtmlspecialchars($field[description])}--><!--{/if}--></i><kbd id="chk_$field['fieldid']" class="p_chk"></kbd></td>
+														<td class="tipcol"><i style="width: 100%" id="tip_$field['fieldid']" class="p_tip"><!--{if $field['description']}--><!--{echo dhtmlspecialchars($field[description])}--><!--{/if}--></i><kbd id="chk_$field['fieldid']" class="p_chk"></kbd></td>
 													</tr>
 												</table>
 											</div>
@@ -239,7 +268,7 @@
 									<!--{hook/register_input}-->
 
 									<!--{if $secqaacheck || $seccodecheck}-->
-										<!--{block sectpl}--><div class="rfm"><table><tr><th><span class="rq">*</span><sec>: </th><td><sec><br /><sec></td></tr></table></div><!--{/block}-->
+										<!--{block sectpl}--><div class="rfm text-field-content sec-check-wrap"><div><sec></div><div class="z_flex"><div class="check-input"><sec></div><div class="check-pic"><sec></div></div> <div><hr class="text-field-line"> <hr class="text-field-focus-line text-focus"></div> </div><!--{/block}-->
 										<!--{subtemplate common/seccheck}-->
 									<!--{/if}-->
 
@@ -252,11 +281,15 @@
 						<div id="layer_reginfo_b">
 							<div class="rfm mbw bw0">
 									<span id="reginfo_a_btn">
-										<!--{if $_GET[action] != 'activation'}--><em>&nbsp;</em><!--{/if}-->
 											<button width="100%" class="ui-button" data-type="primary" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong><!--{if $_GET[action] == 'activation'}-->{lang activation}<!--{else}-->{lang submit}<!--{/if}--></strong></button>
-										<!--{if $bbrules}-->
-											<input type="checkbox" class="pc" name="agreebbrule" value="$bbrulehash" id="agreebbrule" checked="checked" /> <label for="agreebbrule">{lang agree}<a href="javascript:;" onclick="showBBRule()">{lang rulemessage}</a></label>
-										<!--{/if}-->
+										<span class="z_flex_between z_mt10">
+											<!--{if $bbrules}-->
+											<span>
+												<input type="checkbox" class="pc" name="agreebbrule" value="$bbrulehash" id="agreebbrule" checked="checked" /> <label for="agreebbrule">{lang agree}<a href="javascript:;" onclick="showBBRule()">{lang rulemessage}</a></label>
+											</span>
+											<!--{/if}-->
+											<span>已有账号？<a href="member.php?mod=logging&action=login">去登录</a></span>
+										</span>
 									</span>
 								<div><!--{if $this->setting['sitemessage'][register]}--><a href="javascript:;" id="custominfo_register" class="y"><img src="{IMGDIR}/info_small.gif" alt="{lang faq}" /></a><!--{/if}--></div>
 							</div>
