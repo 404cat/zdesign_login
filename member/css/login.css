@@ -8,7 +8,8 @@
 }
 
 body {
-    background-color: #f9f9f9;
+    background: url('../images/foggy-birds.png') !important;
+    /* background: url('../images/inspiration-geometry.png') !important; */
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -24,7 +25,7 @@ body {
     min-width: 1000px;
 }
 
-.login-box {
+.content-box {
     width: 1000px;
     position: absolute;
     left: 50%;
@@ -34,16 +35,16 @@ body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     height: 560px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0 6px 20px 5px rgba(40, 120, 255, 0.1), 0 16px 24px 2px rgba(0, 0, 0, 0.05);
     transition: all .45s cubic-bezier(.23, 1, .32, 1);
 }
 
-.login {
+.content {
     width: 100%;
     text-align: center;
     height: 560px;
-    overflow: hidden
+    /* overflow: hidden */
 }
 
 .cards {
@@ -55,9 +56,11 @@ body {
     left: 0;
     top: 0;
     color: white;
+    background-image:  linear-gradient(180deg, #51b0ff, #5795ff) !important;
+    box-shadow: 2px 0 10px 0px rgba(20, 110, 255, 0.7);
 }
 
-.login-form {
+.form {
     width: 540px;
     float: right;
     position: relative;
@@ -67,4 +70,115 @@ body {
     content: "";
     display: block;
     clear: both;
+}
+
+.text-field-content, .rfm {
+    padding-top: 20px;
+    padding-bottom: 12px;
+    display: block;
+    height: 100%;
+    border: none !important;
+    position: relative;
+    width: 300px;
+}
+
+.text-field-content .tipcol {
+    position: relative;
+    bottom: 0;
+    display: flex;
+}
+
+.rfm .p_chk, .rfm .p_tip  {
+    font-size: 12px;
+    font-weight: normal;
+    width: 100%;
+    padding: 0;
+    text-align: right;
+}
+
+.text-field-content div:nth-child(1) {
+    font-size: 16px;
+    top: 8px;
+    position: absolute;
+    line-height: 20px;
+    -webkit-transition: all .45s cubic-bezier(.23,1,.32,1);
+    transition: all .45s cubic-bezier(.23,1,.32,1);
+    z-index: 1;
+    cursor: text;
+    -webkit-transform: translateZ(0) scale(.75);
+    transform: translateZ(0) scale(.75);
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.text-field-content:focus-within div:nth-child(1) {
+    color: rgba(0, 0, 0, .4);
+}
+
+.text-field-content input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    display: block;
+    padding: 0 10PX;
+    margin: 0;
+    width: 100%;
+    height: 32px;
+    font-size: 16px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .87);
+    font-family: inherit;
+    position: relative;
+}
+
+.text-field-content:focus-within .text-focus{
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.text-field-line {
+    margin: 0;
+    height: 1px;
+    border: none;
+    background-color: rgba(0, 0, 0, .4);
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.text-field-focus-line {
+    margin: 0;
+    height: 2px;
+    border: none;
+    background-color: #2878ff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: -2px;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
+    transition: -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
+    transition: transform .45s cubic-bezier(.23, 1, .32, 1);
+    transition: transform .45s cubic-bezier(.23, 1, .32, 1), 
+    -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
 }
