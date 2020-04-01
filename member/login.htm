@@ -219,12 +219,6 @@
 <div id="main_messaqge_$loginhash"{if $auth} style="width: auto"{/if}>
 	<div id="layer_login_$loginhash">
 		<!--{hook/logging_side_top}-->
-		<h3 class="flb">
-			<em id="returnmessage_$loginhash">
-				<!--{if !empty($_GET['infloat'])}--><!--{if !empty($_GET['guestmessage'])}-->{lang login_guestmessage}<!--{elseif $auth}-->{lang profile_renew}<!--{else}-->{lang login_member}<!--{/if}--><!--{/if}-->
-			</em>
-			<span><!--{if !empty($_GET['infloat']) && !isset($_GET['frommessage'])}--><a href="javascript:;" class="flbc" onclick="hideWindow('$_GET[handlekey]', 0, 1);" title="{lang close}">{lang close}</a><!--{/if}--></span>
-		</h3>
 		<!--{hook/logging_top}-->
 
 	</div>

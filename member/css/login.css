@@ -20,6 +20,17 @@ a:hover {
     text-decoration: none;
 }
 
+.nfl .f_c {
+    margin: 0;
+    padding: 0;
+    width: 0;
+    border: 0;
+}
+
+.alert_info {
+    display: none;
+}
+
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
     width: 6px;
@@ -207,7 +218,7 @@ input:-webkit-autofill {
     height: 100%;
     border: none !important;
     position: relative;
-    width: 300px;
+    width: 300px !important;
 }
 
 .text-field-content .tipcol {
@@ -217,9 +228,9 @@ input:-webkit-autofill {
     display: flex;
 }
 
-.tipcol a {
+/* .tipcol a {
     display: none;
-}
+} */
 
 .rfm .p_chk,
 .rfm .p_tip,
