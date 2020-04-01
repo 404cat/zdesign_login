@@ -15,7 +15,36 @@ body {
     overflow: hidden;
 }
 
-input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
+a,
+a:hover {
+    text-decoration: none;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+
+/* ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 0, 0, 0.4);
+} */
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
 
 .whole {
     height: 100%;
@@ -27,10 +56,55 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     min-width: 1000px;
 }
 
+.main_logo {
+    width: 80px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
 .z-title {
     color: #396afe;
     font-size: 30px;
     margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about_us {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 30px;
+    margin: 0 auto;
+    color: #2878ff;
+}
+
+
+.about_us::before {
+    background-image: -webkit-linear-gradient(to left, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持 Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image:    -moz-linear-gradient(to left, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持 Firefox (3.6 to 15) */
+    background-image:      -o-linear-gradient(to left, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持旧 Opera (11.1 to 12.0) */ 
+    background: linear-gradient(to left, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%);
+    /* 标准语法; 需要最新版本 */
+}
+
+.about_us::after {
+    background-image: -webkit-linear-gradient(to right, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持 Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image:    -moz-linear-gradient(to right, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持 Firefox (3.6 to 15) */
+    background-image:      -o-linear-gradient(to right, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%); /* 支持旧 Opera (11.1 to 12.0) */ 
+    background: linear-gradient(to right, rgba(40,120,255,1) 0%, rgba(40,120,255,0) 61%, rgba(40,120,255,0) 62%);
+    /* 标准语法; 需要最新版本 */
+}
+
+.about_us::after,
+.about_us::before {
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 1px;
+    /* background: #2878ff; */
+    margin: 10px;
 }
 
 .content-box {
@@ -43,10 +117,10 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     height: 560px;
-
     /* overflow: hidden; */
     box-shadow: 0 6px 20px 5px rgba(40, 120, 255, 0.1), 0 16px 24px 2px rgba(0, 0, 0, 0.05);
     transition: all .45s cubic-bezier(.23, 1, .32, 1.5);
+    -webkit-transition: all .45s cubic-bezier(.23, 1, .32, 1.5);
 }
 
 .content {
@@ -67,8 +141,8 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     left: 0;
     top: 0;
     color: white;
-    background-image:  linear-gradient(180deg, #51b0ff, #5795ff) !important;
-    box-shadow: 2px 0 10px 0px rgba(20, 110, 255, 0.7);
+    background-image: linear-gradient(180deg, #51b0ff, #5795ff) !important;
+    box-shadow: 2px 0 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .form {
@@ -93,16 +167,16 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     min-height: 48px;
     display: block;
     position: relative;
-    color: rgba(0,0,0,.54);
+    color: rgba(0, 0, 0, .54);
     margin-bottom: 8px;
 }
 
-.text-field-label{
+.text-field-label {
     top: 8px;
     position: absolute;
     line-height: 20px;
-    -webkit-transition: all .45s cubic-bezier(.23,1,.32,1);
-    transition: all .45s cubic-bezier(.23,1,.32,1);
+    -webkit-transition: all .45s cubic-bezier(.23, 1, .32, 1);
+    transition: all .45s cubic-bezier(.23, 1, .32, 1);
     z-index: 1;
     cursor: text;
     -webkit-transform: translateZ(0) scale(.75);
@@ -125,7 +199,8 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     clear: both;
 }
 
-.text-field-content, .rfm {
+.text-field-content,
+.rfm {
     padding-top: 20px;
     padding-bottom: 0;
     display: block;
@@ -146,7 +221,10 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     display: none;
 }
 
-.rfm .p_chk, .rfm .p_tip, .tipcol i, .tipcol kbd  {
+.rfm .p_chk,
+.rfm .p_tip,
+.tipcol i,
+.tipcol kbd {
     font-size: 12px;
     font-weight: normal;
     width: 100%;
@@ -154,13 +232,13 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     text-align: right;
 }
 
-.text-field-content > div:nth-child(1) {
+.text-field-content>div:nth-child(1) {
     font-size: 16px;
     top: 2px;
     position: absolute;
     line-height: 20px;
-    -webkit-transition: all .45s cubic-bezier(.23,1,.32,1);
-    transition: all .45s cubic-bezier(.23,1,.32,1);
+    -webkit-transition: all .45s cubic-bezier(.23, 1, .32, 1);
+    transition: all .45s cubic-bezier(.23, 1, .32, 1);
     z-index: 1;
     cursor: text;
     -webkit-transform: translateZ(0) scale(.75);
@@ -177,7 +255,7 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     backface-visibility: hidden;
 }
 
-.text-field-content:focus-within  div:nth-child(1) {
+.text-field-content:focus-within div:nth-child(1) {
     color: rgba(0, 0, 0, .4);
 }
 
@@ -206,6 +284,7 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     font-family: inherit;
     position: relative;
 }
+
 .text-field-content .input-wrap::after {
     content: '';
     display: inline-block;
@@ -223,11 +302,11 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     -webkit-transition: -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
     transition: -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
     transition: transform .45s cubic-bezier(.23, 1, .32, 1);
-    transition: transform .45s cubic-bezier(.23, 1, .32, 1), 
-    -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
+    transition: transform .45s cubic-bezier(.23, 1, .32, 1),
+        -webkit-transform .45s cubic-bezier(.23, 1, .32, 1);
 }
 
-.text-field-content:focus-within .input-wrap::after{
+.text-field-content:focus-within .input-wrap::after {
     -webkit-transform: scaleX(1);
     -ms-transform: scaleX(1);
     transform: scaleX(1);
@@ -262,10 +341,13 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     -webkit-transform .45s cubic-bezier(.23, 1, .32, 1); */
 }
 
-.sec-check-wrap a, .check-input span {
+.sec-check-wrap a,
+.check-input span {
     display: none;
 }
-.check-input, .check-pic {
+
+.check-input,
+.check-pic {
     display: flex;
 }
 
@@ -304,6 +386,11 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     padding-top: 100px;
     text-align: center;
     cursor: pointer;
+}
+
+.other_bg {
+    background: url('../images/type.png');
+    background-size: cover;
 }
 
 .z_logo img {
@@ -349,6 +436,10 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
     width: 100% !important;
 }
 
+.z_question_select .ui-select-text {
+    font-size: 12px;
+}
+
 .z_question_select .ui-select-button {
     border-top: none;
     border-left: none;
@@ -359,5 +450,5 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;}
 }
 
 .pointer {
-  cursor: pointer;  
+    cursor: pointer;
 }
