@@ -4,7 +4,15 @@
 #hd,
 #ft,
 #toptb {
+    /* display: none; */
+}
+
+.b_c {
     display: none;
+}
+
+.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r {
+    display: none !important;
 }
 
 body {
