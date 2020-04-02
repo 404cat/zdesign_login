@@ -3,8 +3,7 @@
 <link rel="stylesheet" type="text/css" id="login" href="template/zdesign_login/member/css/Select.css" />
 <link rel="stylesheet" type="text/css" id="login" href="template/zdesign_login/member/css/login.css" />
 <link rel="stylesheet" type="text/css" id="spiper" href="template/zdesign_login/member/css/swiper.min.css" />
-<script src="template/zdesign_login/member/js/swiper.min.js"></script>
-<script src="template/zdesign_login/member/js/Select.js"></script>
+
 <!-- 自动跳转 -->
 <!--{eval $loginhash = 'L'.random(4);}-->
 <!--{if empty($_GET['infloat'])}-->
@@ -20,58 +19,70 @@
 	</div>
 <!--{/if}-->
 
-<div class="whole">
+<div class="whole {if !empty($_GET['infloat'])} whole_mask {/if}">
 	<a href="#"><img class="main_logo" src="template/zdesign_login/member/images/logo.png" alt=""></a>
 	<a class="about_us" href="">关耳郑设计，专业web开发</a>
 
-	<div class="container">
-		<div class="content-box">
+	<div class="login_container">
+		<div class="content-box" id="content-box">
+			<!--{if !empty($_GET['infloat'])}-->
+			<span class="z_notice">
+				<svg t="1585840664119" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12534" width="26" height="26"><path d="M563.2 128h-102.4v512h102.4V128zM563.2 793.856h-102.4V896h102.4v-102.144z" fill="#faad14" p-id="12535"></path></svg>
+				<!--{if !empty($_GET['guestmessage'])}-->{lang login_guestmessage}<!--{elseif $auth}-->{lang profile_renew}<!--{else}-->{lang login_member}<!--{/if}-->
+			</span>
+			<!--{/if}-->
 			<div class="content clearfix">
+				<!--{if !empty($_GET['infloat']) && !isset($_GET['frommessage'])}--><a href="javascript:;" class="close_icon" onclick="hideWindow('$_GET[handlekey]', 0, 1);" title="{lang close}"><svg t="1585840218417" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9540" width="26" height="26"><path d="M595.549 512.5l344.35-344.347c23.211-23.212 23.211-60.84 0-84.053-23.212-23.208-60.841-23.208-84.05 0L511.5 428.45 171.802 88.753c-22.932-22.935-60.116-22.935-83.048 0-22.935 22.933-22.935 60.117 0 83.05L428.45 511.5 84.101 855.849c-23.211 23.21-23.211 60.84 0 84.049 23.212 23.211 60.841 23.211 84.05 0l344.35-344.35 338.822 338.823c22.933 22.935 60.116 22.935 83.048 0 22.935-22.933 22.935-60.117 0-83.048L595.549 512.5z" p-id="9541"></path></svg></a><!--{/if}-->
 				<div class="cards">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<div class="z_logo">
-									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
-								</div>
-								<div class="z_introduce">
-									<h2 class="z_">关耳郑的设计</h2>
-									<p>
-										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
-									</p>
-									<p>
-										创新应用
-										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
-									</p>
-									<p>
-										网络营销
-										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
-									</p>
+								<div class="z_slide">
+									<div class="z_logo">
+										<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+									</div>
+									<div class="z_introduce">
+										<h2 class="z_">关耳郑的设计</h2>
+										<p>
+											网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+										</p>
+										<p>
+											创新应用
+											为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+										</p>
+										<p>
+											网络营销
+											以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+										</p>
+									</div>
 								</div>
 							</div>
 							<div class="swiper-slide other_bg">
-								<div class="z_logo">
-									<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
-								</div>
-								<div class="z_introduce">
-									<h2 class="z_">关耳郑的设计</h2>
-									<p>
-										网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
-									</p>
-									<p>
-										创新应用
-										为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
-									</p>
-									<p>
-										网络营销
-										以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
-									</p>
+								<div class=" z_slide">
+									<div class="z_logo">
+										<img src="template/zdesign_login/member/images/logo.jpg" alt="">	
+									</div>
+									<div class="z_introduce">
+										<h2 class="z_">关耳郑的设计</h2>
+										<p>
+											网站建设，专注网站建设十二年，丰富的设计经验、深厚的技术沉淀，专业团队为您提供一站式解决方案。
+										</p>
+										<p>
+											创新应用
+											为用户提供短视频拍摄、全景展示、数据可视化图表、各种API数据接口对接等服务，让价值延伸。	
+										</p>
+										<p>
+											网络营销
+											以营销为导向，网络为工具，让更多的人了解品牌/产品，以便更好地提升品牌影响力及刺激销量。	
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
 				</div>
+
 				<script>
 					var swiper = new Swiper('.swiper-container', {
 						slidesPerView: 1,
@@ -87,7 +98,12 @@
 							prevEl: '.swiper-button-prev',
 						},
 					});
+					// console.log(document.getElementsByClassName('content-box'))
+					// setTimeout(function() {
+					// 	document.getElementById('content-box').style.left="49%"
+					// },100)
 				</script>
+				
 				<div class="form">
 					<form method="post" autocomplete="off" name="login" id="loginform_$loginhash" class="cl" onsubmit="{if $this->setting['pwdsafety']}pwmd5('password3_$loginhash');{/if}pwdclear = 1;ajaxpost('loginform_$loginhash', 'returnmessage_$loginhash', 'returnmessage_$loginhash', 'onerror');return false;" action="member.php?mod=logging&action=login&loginsubmit=yes{if !empty($_GET['handlekey'])}&handlekey=$_GET[handlekey]{/if}{if isset($_GET['frommessage'])}&frommessage{/if}&loginhash=$loginhash">
 							<input type="hidden" name="formhash" value="{FORMHASH}" />
@@ -125,7 +141,7 @@
 							</div>
 							<!--{/if}-->
 			
-							<!--{if empty($_GET['auth']) || $questionexist}-->
+							<!--{if empty($_GET['infloat']) && empty($_GET['auth']) || $questionexist && empty($_GET['infloat'])}-->
 							<div class="text-field-content">
 								<div class="text-field-label">
 									{lang security_q}

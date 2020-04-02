@@ -16,7 +16,6 @@
 }
 
 body {
-    background: url('../images/foggy-birds.png') !important;
     /* background: url('../images/inspiration-geometry.png') !important; */
     width: 100%;
     height: 100%;
@@ -66,13 +65,28 @@ input:-webkit-autofill {
 }
 
 .whole {
-    height: 100%;
+    /* width: 100vw;
+    height: 100%; */
+    background: url('../images/foggy-birds.png');
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     overflow: hidden;
 }
 
-.container {
+.whole_mask {
+    background: rgba(0, 0, 0, 0.8)
+}
+
+.login_container {
     height: 100%;
     min-width: 1000px;
+}
+
+.z_slide {
+    width: 440px;
 }
 
 .main_logo {
@@ -136,10 +150,28 @@ input:-webkit-autofill {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     height: 560px;
-    /* overflow: hidden; */
     box-shadow: 0 6px 20px 5px rgba(40, 120, 255, 0.1), 0 16px 24px 2px rgba(0, 0, 0, 0.05);
     transition: all .45s cubic-bezier(.23, 1, .32, 1.5);
     -webkit-transition: all .45s cubic-bezier(.23, 1, .32, 1.5);
+}
+
+.z_notice {
+    position: absolute;
+    right: 5px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    top: -28px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.close_icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    z-index: 111;
 }
 
 .content {
@@ -394,6 +426,7 @@ input:-webkit-autofill {
 }
 
 .swiper-container {
+    width: 100%;
     height: 100%;
 }
 
@@ -402,6 +435,7 @@ input:-webkit-autofill {
 }
 
 .swiper-slide {
+    /* width: 440px !important; */
     padding-top: 100px;
     text-align: center;
     cursor: pointer;
